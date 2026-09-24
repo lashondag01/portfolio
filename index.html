@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>LaShonda Graham Portfolio</title>
-<meta name="description" content="Healthcare operations professional — experience, skills, and sample Google Sheets / Power BI dashboards.">
+<meta name="description" content="Healthcare business analysis and operations — EMR/LMS implementation, compliance, process improvement, case studies, and sample dashboards.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -141,7 +141,7 @@
     margin-top:6px;
     color:var(--muted);
     font-size:1.02rem;
-    max-width:46ch;
+    max-width:62ch;
   }
   .contact{
     display:flex;
@@ -394,6 +394,46 @@
     header .name{font-size:1.9rem;}
   }
 
+  /* case study */
+  .cs-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:18px 0 22px;}
+  .cs-meta div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 14px;font-size:0.9rem;color:var(--ink-soft);line-height:1.45;}
+  .cs-meta b{display:block;font-size:0.7rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:2px;}
+  .lifecycle{list-style:none;margin:0 0 26px;padding:0;display:flex;flex-wrap:wrap;gap:6px;counter-reset:step;}
+  .lifecycle li{flex:1 1 100px;counter-increment:step;background:var(--blue-soft);border-radius:8px;padding:8px 10px;font-size:0.8rem;font-weight:600;line-height:1.3;}
+  .lifecycle li::before{content:counter(step);display:block;font-size:0.7rem;color:var(--blue);font-weight:700;}
+  .lifecycle a{color:var(--ink);text-decoration:none;}
+  .lifecycle a:hover{color:var(--blue);}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:28px;}
+  .stat{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;}
+  .stat .n{font-family:"Lora",Georgia,serif;font-size:1.6rem;font-weight:600;color:var(--ink);line-height:1.15;}
+  .stat .l{font-size:0.84rem;color:var(--muted);margin-top:2px;line-height:1.4;}
+  .phases{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .phase{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;}
+  .phase.wide{grid-column:1 / -1;}
+  .phase .step{font-size:0.7rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--accent);}
+  .phase h4{font-family:"Lora",Georgia,serif;font-size:1.05rem;margin:2px 0 8px;color:var(--ink);}
+  .phase ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:0.9rem;line-height:1.55;}
+  .phase li{margin-bottom:3px;}
+  .phase .deliv{margin-top:10px;padding-top:8px;border-top:1px dashed var(--line);font-size:0.8rem;color:var(--muted);line-height:1.5;}
+  .phase .deliv b{color:var(--ink-soft);}
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .compare h5{margin:0 0 4px;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);}
+  @media (max-width:640px){.phases,.compare{grid-template-columns:1fr;}}
+
+  .topstats{margin:0 0 22px;}
+  .stat .n{white-space:nowrap;}
+  @media (max-width:480px){.stat .n{font-size:1.3rem;}}
+  .cs-title{font-size:1.3rem;margin:34px 0 0;}
+  .cs-title:first-of-type{margin-top:0;}
+  .cs-lead{color:var(--ink-soft);line-height:1.6;max-width:70ch;margin:8px 0 0;font-size:0.98rem;}
+  .cs-divider{border:none;border-top:1px solid var(--line);margin:40px 0 0;}
+
+  .rec{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:24px 26px;margin:0;}
+  .rec blockquote{margin:0;font-family:"Lora",Georgia,serif;font-size:1.12rem;line-height:1.6;color:var(--ink);}
+  .rec blockquote p{margin:0 0 12px;}
+  .rec figcaption{margin-top:14px;font-size:0.9rem;color:var(--muted);}
+  .rec figcaption b{color:var(--ink);font-weight:600;}
+
 </style>
 </head>
 <body>
@@ -401,6 +441,8 @@
   <div class="navbar-inner">
     <a href="#experience">Experience</a>
     <a href="#skills">Skills</a>
+    <a href="#case-study">Case Studies</a>
+    <a href="#recommendation">Recommendation</a>
     <a href="#work">Work Samples</a>
     <a href="#contact">Contact</a>
   </div>
@@ -411,7 +453,7 @@
   <header>
     <div>
       <div class="name">LaShonda Graham</div>
-      <div class="tagline">Healthcare Operations &amp; Business Systems — compliance, EMR/LMS implementation, and KPI reporting for behavioral health programs.</div>
+      <div class="tagline">Healthcare Business Analysis &amp; Operations · Business Systems Implementation · Compliance · Process Improvement</div>
     </div>
     <div class="contact">
       <a href="mailto:lashondag01@gmail.com">lashondag01@gmail.com</a>
@@ -421,12 +463,20 @@
   </header>
 
   <p class="intro">
-    I build the reporting and compliance infrastructure behind growing healthcare programs — from Medicaid
-    enrollment and audit-readiness to the dashboards leadership uses to run the business day to day. 13+ years
-    across enterprise IT and healthcare operations, most recently in behavioral health.
+ I bridge healthcare operations, business processes, and technology. With 13+ years across enterprise
+ IT and healthcare operations, I have gathered requirements, improved workflows, led UAT,
+ implemented business systems, built operational reporting, and supported compliance initiatives. My 
+ recent work includes behavioral health operations, EMR and LMS implementation, payer enrollment, audit readiness, and KPI reporting.
   </p>
 
-  <div class="note">&#9432;&nbsp; Dashboard figures on this page are fictional — built to demonstrate structure and skills, not to represent any employer's real data.</div>
+  <div class="stats topstats" aria-label="Selected results">
+    <div class="stat"><div class="n">80+ &rarr; ~20</div><div class="l">Open audit findings reduced in under a year</div></div>
+    <div class="stat"><div class="n">6 mo</div><div class="l">Kipu EMR &amp; Relias LMS rollout, business case to go-live</div></div>
+    <div class="stat"><div class="n">5</div><div class="l">KPI dashboards, an organization's first executive reporting</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">Payers enrolled for a new practice (Medicaid, BCBS, Ambetter)</div></div>
+  </div>
+
+  <div class="note">&#9432;&nbsp; Dashboard figures on this page are fictional — built to demonstrate structure and skills. The case studies describe real project work; no client data is included.</div>
 
   <section class="block" id="experience">
     <div class="sec-head">Experience</div>
@@ -442,8 +492,7 @@
           <li>Built a 12-month CARF accreditation roadmap and the Business Plan, Strategic Plan, and Planning Charter guiding the founding team.</li>
           <li>Built a feasibility model from Arkansas Medicaid and carrier reimbursement rates to set break-even session volume.</li>
           <li>Designed Google Sheets dashboards tracking census, session volume, referrals, payer mix, capacity, and revenue.</li>
-           <liCoordinated provider credentialing, payer enrollment (CAQH, NPPES, PECOS), and Medicaid affiliation across clinical
-             and administrative teams to support revenue-cycle readiness.</li>
+          <li>Established payer enrollment for a new practice (Arkansas Medicaid, Arkansas BCBS, Ambetter), setting up CAQH, NPPES, and PECOS profiles to ensure revenue-cycle readiness.</li>
         </ul>
       </div>
     </div>
@@ -457,9 +506,8 @@
           <li>Led a six-month Kipu EMR and Relias LMS implementation for a ~25-employee site, from requirements through go-live and stabilization.</li>
           <li>Reduced open audit findings from 80+ to ~20 (about 75%) through root-cause analysis and redesigned SOPs.</li>
           <li>Built the organization's first centralized KPI reporting in Excel, Power BI, and Google Sheets.</li>
+          <li>Coordinated provider recredentialing and Medicaid affiliations across clinical and administrative teams, keeping CAQH, NPPES, and PECOS records current to prevent billing interruptions.</li>
           <li>Supervised 4–5 administrative staff and owned onboarding for ~10 new hires.</li>
-          <li>Coordinated provider recredentialing, payer enrollment (CAQH, NPPES, PECOS), and Medicaid affiliations across clinical
-             and administrative teams to ensure revenue-cycle readiness..</li>
         </ul>
       </div>
     </div>
@@ -543,6 +591,198 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="block" id="case-study">
+    <div class="sec-head">Case Studies</div>
+    <h2>Two projects, start to finish</h2>
+
+    <h3 class="cs-title">1 · Healthcare System Implementation: Kipu EMR &amp; Relias LMS</h3>
+    <p class="cs-lead">
+      I led a behavioral health outpatient program off a slow legacy EMR and manual processes onto Kipu EMR for
+      clinical documentation and Relias LMS for staff training, owning every phase from the business case through
+      post-go-live stabilization.
+    </p>
+
+    <div class="cs-meta">
+      <div><b>Setting</b>Behavioral health outpatient program (OP / IOP / PHP), ~25 staff</div>
+      <div><b>My role</b>Business Operations &amp; Compliance Manager; implementation lead</div>
+      <div><b>Systems</b>Kipu EMR · Relias LMS</div>
+      <div><b>Timeline</b>Aug 2024 – Feb 2025</div>
+    </div>
+
+    <ol class="lifecycle" aria-label="Implementation lifecycle">
+      <li><a href="#cs-need">Business Need</a></li>
+      <li><a href="#cs-req">Requirements</a></li>
+      <li><a href="#cs-flow">Current / Future Workflow</a></li>
+      <li><a href="#cs-uat">UAT</a></li>
+      <li><a href="#cs-train">Training</a></li>
+      <li><a href="#cs-golive">Go-Live</a></li>
+      <li><a href="#cs-stab">Stabilization</a></li>
+    </ol>
+
+    <div class="stats">
+      <div class="stat"><div class="n">80+ &rarr; ~20</div><div class="l">Open audit findings reduced (about 75%)</div></div>
+      <div class="stat"><div class="n">20</div><div class="l">Staff trained and onboarded in Relias</div></div>
+      <div class="stat"><div class="n">15–20</div><div class="l">UAT scenarios tested before go-live</div></div>
+      <div class="stat"><div class="n">5</div><div class="l">KPI dashboards, the organization's first executive reporting</div></div>
+    </div>
+
+    <div class="phases">
+      <div class="phase" id="cs-need">
+        <div class="step">Phase 1</div>
+        <h4>Business Need</h4>
+        <ul>
+          <li>The legacy EMR was slow, and intake, training tracking, and reporting were largely manual.</li>
+          <li>Charts were hard to audit, training compliance was hard to prove, and open audit findings had passed 80.</li>
+          <li>Aligned leadership on goals: audit-ready charts, trackable training compliance, and program-level reporting.</li>
+        </ul>
+        <div class="deliv"><b>Deliverables:</b> problem statement, success criteria.</div>
+      </div>
+
+      <div class="phase" id="cs-req">
+        <div class="step">Phase 2</div>
+        <h4>Requirements</h4>
+        <ul>
+          <li>Gathered requirements from clinical, intake, administrative, and leadership staff.</li>
+          <li>Turned documentation and accreditation standards into system requirements for OP, IOP, and PHP.</li>
+          <li>Defined role-based training requirements for Relias.</li>
+        </ul>
+        <div class="deliv"><b>Deliverables:</b> requirements by stakeholder group, role-based training matrix.</div>
+      </div>
+
+      <div class="phase wide" id="cs-flow">
+        <div class="step">Phase 3</div>
+        <h4>Current-State / Future-State Workflow</h4>
+        <div class="compare">
+          <div>
+            <h5>Before</h5>
+            <ul>
+              <li>Slow legacy EMR that staff worked around</li>
+              <li>Manual intake, tracking, and follow-up</li>
+              <li>Training completion tracked by hand</li>
+              <li>Documentation gaps found only during audits</li>
+            </ul>
+          </div>
+          <div>
+            <h5>After</h5>
+            <ul>
+              <li>Standardized electronic intake and assessment in Kipu</li>
+              <li>Required fields and signatures built into the workflow</li>
+              <li>Role-based Relias assignments with completion tracking</li>
+              <li>System data feeding leadership KPI dashboards</li>
+            </ul>
+          </div>
+        </div>
+        <div class="deliv"><b>Deliverables:</b> current- and future-state process maps (referral &rarr; intake &rarr; assessment &rarr; treatment plan &rarr; notes &rarr; discharge), gap analysis.</div>
+      </div>
+
+      <div class="phase" id="cs-uat">
+        <div class="step">Phase 4</div>
+        <h4>User Acceptance Testing</h4>
+        <ul>
+          <li>Wrote 15–20 test scenarios from real workflows, such as admitting a client at each level of care and completing a discharge.</li>
+          <li>Ran testing with clinical and admin users, logged defects, and retested each fix.</li>
+        </ul>
+        <div class="deliv"><b>Deliverables:</b> UAT test cases, issue log, retesting documentation, and Clinical Director approval for go-live.</div>
+      </div>
+
+      <div class="phase" id="cs-train">
+        <div class="step">Phase 5</div>
+        <h4>Training</h4>
+        <ul>
+          <li>Trained 20 staff with role-specific sessions for clinicians, intake and admin staff, and supervisors.</li>
+          <li>Set up Relias course assignments by role and tracked completion for audits.</li>
+        </ul>
+        <div class="deliv"><b>Deliverables:</b> training plan, quick-reference guides, role-based Relias curriculum.</div>
+      </div>
+
+      <div class="phase" id="cs-golive">
+        <div class="step">Phase 6</div>
+        <h4>Go-Live</h4>
+        <ul>
+          <li>Ran a readiness checklist covering accounts and permissions, form configuration, and support coverage.</li>
+          <li>Provided hands-on support in the first days and triaged issues in real time.</li>
+        </ul>
+        <div class="deliv"><b>Deliverables:</b> go-live checklist, cutover and escalation plan.</div>
+      </div>
+
+      <div class="phase" id="cs-stab">
+        <div class="step">Phase 7</div>
+        <h4>Stabilization</h4>
+        <ul>
+          <li>Audited charts against the new standards, refined forms from user feedback, and followed up on gaps.</li>
+          <li>Built 5 KPI dashboards from system data. Open audit findings fell from 80+ to about 20.</li>
+        </ul>
+        <div class="deliv"><b>Deliverables:</b> audit tracking, workflow refinements, KPI dashboards.</div>
+      </div>
+    </div>
+
+    <hr class="cs-divider">
+    <h3 class="cs-title" id="cs-audit">2 · Audit Turnaround: 80+ Open Findings to ~20</h3>
+    <p class="cs-lead">
+      The same program came into my role with more than 80 open findings from state licensing, accreditation,
+      and Medicaid/payer reviews. I traced them to their root causes, rebuilt the processes behind them, and
+      tracked each one to closure, bringing open findings down to about 20 in 6–12 months.
+    </p>
+
+    <div class="cs-meta">
+      <div><b>Audit sources</b>State licensing · Accreditation · Medicaid / payer</div>
+      <div><b>Finding areas</b>Clinical documentation · Personnel files · Policies · Facility &amp; safety</div>
+      <div><b>My role</b>Business Operations &amp; Compliance Manager; remediation lead</div>
+      <div><b>Timeframe</b>6–12 months</div>
+    </div>
+
+    <div class="phases">
+      <div class="phase">
+        <div class="step">Step 1</div>
+        <h4>Inventory &amp; Prioritize</h4>
+        <ul>
+          <li>Pulled every open finding from all three audit sources into one tracker.</li>
+          <li>Grouped them into four areas and ranked them by licensing and payment risk.</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="step">Step 2</div>
+        <h4>Find Root Causes</h4>
+        <ul>
+          <li>Looked for what each group of findings had in common instead of fixing them one at a time.</li>
+          <li>Traced repeat problems to process gaps: no standard workflow, unclear ownership, or no way to catch misses before an audit.</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="step">Step 3</div>
+        <h4>Fix the Process</h4>
+        <ul>
+          <li><b>Clinical documentation:</b> redesigned SOPs and moved charting into Kipu with required fields (see case study 1).</li>
+          <li><b>Personnel files:</b> standardized file checklists and moved required training into Relias.</li>
+          <li><b>Policies:</b> updated or wrote missing policies and procedures.</li>
+          <li><b>Facility &amp; safety:</b> set owners and schedules for recurring requirements.</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="step">Step 4</div>
+        <h4>Track to Closure</h4>
+        <ul>
+          <li>Assigned an owner and due date to every finding and reviewed status with leadership.</li>
+          <li>Ran internal reviews to confirm fixes held before the next external audit.</li>
+        </ul>
+        <div class="deliv"><b>Deliverables:</b> findings tracker, root-cause summary, revised SOPs and policies, corrective action plans.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="recommendation">
+    <div class="sec-head">Recommendation</div>
+    <h2>From someone I've worked with for years</h2>
+    <figure class="rec">
+      <blockquote>
+        <p>&ldquo;She has a particular strength for recognizing where an organization needs greater structure and then developing practical systems, processes, and tools to address those needs.&rdquo;</p>
+        <p>&ldquo;She has the ability to translate complicated compliance, business, and technology requirements into processes that are understandable and actionable.&rdquo;</p>
+        <p>&ldquo;The fact that I continue to work with LaShonda is one of the strongest endorsements I can give of her work.&rdquo;</p>
+      </blockquote>
+      <figcaption><b>Tiara Miller, LCSW</b></figcaption>
+    </figure>
   </section>
 
   <section class="block" id="work">
