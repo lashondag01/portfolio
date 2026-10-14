@@ -890,4 +890,28 @@
 <!-- Visit tracking (GoatCounter). Dashboard: https://lashondag.goatcounter.com -->
 <script data-goatcounter="https://lashondag.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
+<!-- Phone alerts (ntfy). Subscribe to topic "lashonda-portfolio-d84aebfa" in the ntfy app. -->
+<script>
+(function () {
+  var TOPIC = 'https://ntfy.sh/lashonda-portfolio-d84aebfa';
+  try { if (localStorage.getItem('skipgc') === 't') return; } catch (e) {} // skip your own visits
+  var p = new URLSearchParams(location.search);
+  var campaign = p.get('campaign') || p.get('utm_campaign');
+  var src = p.get('src') || p.get('utm_source');
+  var label = campaign ? campaign + (src ? ' (via ' + src + ')' : '') : 'untagged visitor';
+  function send(title, msg) {
+    try {
+      fetch(TOPIC, { method: 'POST', body: msg, headers: { 'Title': title }, keepalive: true });
+    } catch (e) {}
+  }
+  // Alert when a tagged link is opened
+  if (campaign) send('Portfolio viewed', 'Opened by: ' + label);
+  // Alert when anyone downloads the resume
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('[data-goatcounter-click="resume-download"]');
+    if (a) send('Resume downloaded', 'Downloaded by: ' + label);
+  });
+})();
+</script>
+
 </body></html>
